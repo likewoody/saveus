@@ -2,7 +2,6 @@
 
 import FilterSection from "../filter/FilterSection";
 import HospitalCard from "./HospitalCard";
-import BottomNav from "../nav/BottomNav";
 import { useState } from "react";
 import { Department } from "@/types/department";
 import { hospitalList } from "@/const/hospitalMockList";
@@ -13,12 +12,12 @@ import { doctors } from "@/const/doctor";
  * 진료과를 선택했을 때, 의사 선생님 목록 중에 가용 가능한, 해당 과의 선생님이 있다면 목록을 보여준다.
  */
 
-export default function HospitalScreen() {
+export default function HospitalScreenPage() {
   const [curDepartment, setCurDepartment] = useState<Department>("전체");
   // const [curAvailable, setCurAvailable] = useState<boolean>(false);
 
   return (
-    <div className="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark border-x border-[#3b4754]/30 shadow-2xl">
+    <div className="relative flex h-[100dvh] w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark border-x border-[#3b4754]/30 shadow-2xl">
       {/* Header */}
       <header className="sticky top-0 z-50 dark:bg-background-dark/95 backdrop-blur-md border-b border-[#3b4754] px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-3">
@@ -96,13 +95,6 @@ export default function HospitalScreen() {
             </div>
           ))}
       </div>
-
-      {/* <HospitalCard />
-        <HospitalCard open />
-        <HospitalCard disabled />
-        <HospitalCard disabled reason="no-doctor" /> */}
-
-      <BottomNav active={"list"} />
     </div>
   );
 }
